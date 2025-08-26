@@ -3,10 +3,12 @@ const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetail = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
+const searchInput = document.querySelector('.search-box input'); // input field
 
-search.addEventListener('click', () => {
+// Main function
+function getWeather() {
     const APIkey = 'aabba02632ba1d7d413047df023f8ec4';
-    const City = document.querySelector('.search-box input').value;
+    const City = searchInput.value;
 
     if (City === '') return;
 
@@ -61,4 +63,14 @@ search.addEventListener('click', () => {
             humidity.innerHTML = `${json.main.humidity}%`;
             wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`;
         });
+}
+
+// 🔹 Button click event
+search.addEventListener('click', getWeather);
+
+// 🔹 Enter key event
+searchInput.addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        getWeather();
+    }
 });

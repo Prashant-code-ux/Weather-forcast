@@ -15,6 +15,7 @@ body {
     background:  linear-gradient(to bottom, lch(32.56% 9.67 178.89), #51a89a);
     background-size: cover;
     background-position: center;
+    overflow: hidden;     /*Body overflow for scroll down*/
 }
 
 .container{
